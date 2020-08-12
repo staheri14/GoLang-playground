@@ -9,17 +9,16 @@ import (
 	"strings"
 )
 
-
 //Given an array of integers, find the sum of its elements.
 func main() {
-	reader := bufio.NewReaderSize(os.Stdin, 16 * 1024 * 1024)
+	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
 	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
 	checkError(err)
 
 	defer stdout.Close()
 
-	writer := bufio.NewWriterSize(stdout, 16 * 1024 * 1024)
+	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
 	aTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
 
@@ -48,7 +47,7 @@ func main() {
 	for i, resultItem := range result {
 		fmt.Fprintf(writer, "%d", resultItem)
 
-		if i != len(result) - 1 {
+		if i != len(result)-1 {
 			fmt.Fprintf(writer, " ")
 		}
 	}

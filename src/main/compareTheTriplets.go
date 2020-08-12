@@ -12,13 +12,13 @@ import (
 // Complete the compareTriplets function below.
 func compareTriplets(a []int32, b []int32) []int32 {
 
-	scores := []int32{0,0}
-	for i,v:=range a {
-		if v>b[i] {
-			scores[0]=scores[0]+1
+	scores := []int32{0, 0}
+	for i, v := range a {
+		if v > b[i] {
+			scores[0] = scores[0] + 1
 		}
-		if v<b[i]{
-			scores[1]=scores[1]+1
+		if v < b[i] {
+			scores[1] = scores[1] + 1
 		}
 	}
 	return scores
@@ -26,14 +26,14 @@ func compareTriplets(a []int32, b []int32) []int32 {
 }
 
 func main() {
-	reader := bufio.NewReaderSize(os.Stdin, 16 * 1024 * 1024)
+	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
 	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
 	checkError(err)
 
 	defer stdout.Close()
 
-	writer := bufio.NewWriterSize(stdout, 16 * 1024 * 1024)
+	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
 	aTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
 
@@ -62,7 +62,7 @@ func main() {
 	for i, resultItem := range result {
 		fmt.Fprintf(writer, "%d", resultItem)
 
-		if i != len(result) - 1 {
+		if i != len(result)-1 {
 			fmt.Fprintf(writer, " ")
 		}
 	}

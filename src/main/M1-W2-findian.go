@@ -15,20 +15,19 @@ import (
 	"strings"
 )
 
-
-func main(){
+func main() {
 	var in string
 	fmt.Println("Enter a string:")
 	_, err := fmt.Scan(&in)
-	if err != nil{
+	if err != nil {
 		panic(err)
 	}
-	hasi:=strings.HasPrefix(in,"i")
-	hasn:=in[len(in)-1]=='n'
-	hasa:=strings.Contains(in,"a")
-	if(hasi && hasn && hasa){
+	hasi := strings.HasPrefix(in, "i")
+	hasn := in[len(in)-1] == 'n'
+	hasa := strings.Contains(in, "a")
+	if hasi && hasn && hasa {
 		fmt.Println("Found!")
-	}else{
+	} else {
 		fmt.Println("Not Found!")
 	}
 

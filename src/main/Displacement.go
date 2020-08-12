@@ -13,8 +13,8 @@ import "fmt"
 //GenDisplaceFn() should return a function which computes displacement as a function of time, assuming the given values acceleration, initial velocity, and initial displacement.
 //The function returned by GenDisplaceFn() should take one float64 argument t, representing time, and return one float64 argument which is the displacement travelled after time t.
 
-func main(){
-	var acceleration, velocity,displacement,time float64
+func main() {
+	var acceleration, velocity, displacement, time float64
 
 	//Reads user inputs for acceleration, initial velocity, and initial displacement
 	fmt.Println("Enter acceleration: ")
@@ -23,20 +23,19 @@ func main(){
 	fmt.Scan(&velocity)
 	fmt.Println("Enter Displacement: ")
 	fmt.Scan(&displacement)
-	f:=GenDisplaceFn(acceleration, velocity,displacement)
-
+	f := GenDisplaceFn(acceleration, velocity, displacement)
 
 	fmt.Println("Enter the time: ")
 	fmt.Scan(&time)
 
-	fmt.Println("Displacement is: ",f(time))
+	fmt.Println("Displacement is: ", f(time))
 
 }
 
 // Returns a function which computes displacement as a function of time, assuming the given values acceleration, initial velocity, and initial displacement.
-func GenDisplaceFn(acceleration, velocity,displacement float64) func(float64)float64{
-	f:= func(t float64) float64{
-		s:=(0.5*acceleration*t*t)+(velocity*t)+displacement
+func GenDisplaceFn(acceleration, velocity, displacement float64) func(float64) float64 {
+	f := func(t float64) float64 {
+		s := (0.5 * acceleration * t * t) + (velocity * t) + displacement
 		return s
 	}
 	return f
