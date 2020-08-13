@@ -24,7 +24,7 @@ func main() {
 	array := make([]int, 0, max_length)
 	//populate the array with the user inputs
 	for i := 0; i < max_length; i++ {
-		fmt.Println("Type Q to end or type an Integer:")
+		fmt.Println("Type Q to start sorting or type an Integer:")
 		var v string
 		fmt.Scan(&v)
 		//break if user entes Q
