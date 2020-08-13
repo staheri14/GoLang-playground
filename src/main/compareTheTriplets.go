@@ -30,6 +30,8 @@ import (
 //
 //1 ≤ a[i] ≤ 100
 //1 ≤ b[i] ≤ 100
+
+//computes the scores of comparison of arrays a and b
 func compareTriplets(a []int32, b []int32) []int32 {
 
 	scores := []int32{0, 0}
@@ -57,9 +59,10 @@ func main() {
 
 	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
-	//retrieve the user input
+	//reads Alice's input ============================================
 	aTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
 
+	//keeps Alice's input
 	var a []int32
 
 	for i := 0; i < 3; i++ {
@@ -68,9 +71,11 @@ func main() {
 		aItem := int32(aItemTemp)
 		a = append(a, aItem)
 	}
+	//reads Bob's input ============================================
 
 	bTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
 
+	//keeps Bob's input
 	var b []int32
 
 	for i := 0; i < 3; i++ {
@@ -80,8 +85,10 @@ func main() {
 		b = append(b, bItem)
 	}
 
+	//compares the inputs ========================================
 	result := compareTriplets(a, b)
 
+	//prints the result
 	for i, resultItem := range result {
 		fmt.Fprintf(writer, "%d", resultItem)
 
