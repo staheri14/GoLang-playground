@@ -41,6 +41,9 @@ func main() {
 	//reads user input
 	scanner := bufio.NewScanner(os.Stdin)
 
+	fmt.Println("Enter your request as an animal <space> action")
+	fmt.Println("Animal name can be cow, bird, and snake and the action can be eat, move, and speak")
+
 	fmt.Println("Enter your request:")
 
 	for scanner.Scan() {
