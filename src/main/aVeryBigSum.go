@@ -12,12 +12,11 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"io"
 	_ "io"
+	"main/helper"
 	"os"
 	"strconv"
 	"strings"
-
 )
 
 func aVeryBigSum(ar []int64) int64 {
@@ -33,24 +32,24 @@ func main() {
 	//a reader with at least 2^20 bytes buffer size
 	reader := bufio.NewReaderSize(os.Stdin, 1024*1024)
 
-	// get the value of the environment variable OUTPUT_PATH
+	// prepare the output file
 	stdout, err := os.Create("aVeryBigSum.txt")
-	checkErr(err)
+	helper.CheckError(err)
 
 	defer stdout.Close()
 
 	writer := bufio.NewWriterSize(stdout, 1024*1024)
 
-	arCount, err := strconv.ParseInt(readLn(reader), 10, 64)
-	checkErr(err)
+	arCount, err := strconv.ParseInt(helper.ReadLine(reader), 10, 64)
+	helper.CheckError(err)
 
-	arTemp := strings.Split(readLn(reader), " ")
+	arTemp := strings.Split(helper.ReadLine(reader), " ")
 
 	var ar []int64
 
 	for i := 0; i < int(arCount); i++ {
 		arItem, err := strconv.ParseInt(arTemp[i], 10, 64)
-		checkErr(err)
+		helper.CheckError(err)
 		ar = append(ar, arItem)
 	}
 
@@ -61,17 +60,3 @@ func main() {
 	writer.Flush()
 }
 
-func checkErr(err error) {
-	if err != nil {
-		panic(err)
-	}
-}
-
-func readLn(reader *bufio.Reader) string {
-	str, _, err := reader.ReadLine()
-	if err == io.EOF {
-		return ""
-	}
-
-	return strings.TrimRight(string(str), "\r\n")
-}
