@@ -60,6 +60,7 @@ func main() {
 	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
 	// reads Alice's input ============================================
+	fmt.Println("Enter Alice's triplet in a space-separated format")
 	aTemp := strings.Split(strings.TrimSpace(helper.ReadLine(reader)), " ")
 
 	//keeps Alice's input
@@ -72,7 +73,7 @@ func main() {
 		a = append(a, aItem)
 	}
 	//reads Bob's input ============================================
-
+	fmt.Println("Enter Bob's triplet in a space-separated format")
 	bTemp := strings.Split(strings.TrimSpace(helper.ReadLine(reader)), " ")
 
 	//keeps Bob's input
