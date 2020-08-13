@@ -40,13 +40,18 @@ func main() {
 
 	writer := bufio.NewWriterSize(stdout, 1024*1024)
 
+	fmt.Println("Enter the size of the array")
+	//gets the array size
 	arCount, err := strconv.ParseInt(helper.ReadLine(reader), 10, 64)
 	helper.CheckError(err)
 
+	fmt.Println("Enter the space-separated integers")
+	//gets the space-separated integers
 	arTemp := strings.Split(helper.ReadLine(reader), " ")
 
 	var ar []int64
 
+	//retrieves the integers from the arTemp
 	for i := 0; i < int(arCount); i++ {
 		arItem, err := strconv.ParseInt(arTemp[i], 10, 64)
 		helper.CheckError(err)
@@ -57,6 +62,7 @@ func main() {
 
 	fmt.Fprintf(writer, "%d\n", result)
 
+	// writes the output
 	writer.Flush()
 }
 
