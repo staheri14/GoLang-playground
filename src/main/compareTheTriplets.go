@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"io"
+	"main/helper"
 	"os"
 	"strconv"
 	"strings"
@@ -48,39 +48,39 @@ func compareTriplets(a []int32, b []int32) []int32 {
 }
 
 func main() {
-	//creates a reader with the given buffer size in bytes
+	// creates a reader with the given buffer size in bytes
 	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
-	//creates the output file
+	// creates the output file
 	stdout, err := os.Create("compareTheTriplets.txt")
-	checkError(err)
+	helper.CheckError(err)
 
 	defer stdout.Close()
 
 	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
-	//reads Alice's input ============================================
-	aTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
+	// reads Alice's input ============================================
+	aTemp := strings.Split(strings.TrimSpace(helper.ReadLine(reader)), " ")
 
 	//keeps Alice's input
 	var a []int32
 
 	for i := 0; i < 3; i++ {
 		aItemTemp, err := strconv.ParseInt(aTemp[i], 10, 64)
-		checkError(err)
+		helper.CheckError(err)
 		aItem := int32(aItemTemp)
 		a = append(a, aItem)
 	}
 	//reads Bob's input ============================================
 
-	bTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
+	bTemp := strings.Split(strings.TrimSpace(helper.ReadLine(reader)), " ")
 
 	//keeps Bob's input
 	var b []int32
 
 	for i := 0; i < 3; i++ {
 		bItemTemp, err := strconv.ParseInt(bTemp[i], 10, 64)
-		checkError(err)
+		helper.CheckError(err)
 		bItem := int32(bItemTemp)
 		b = append(b, bItem)
 	}
@@ -102,20 +102,7 @@ func main() {
 	writer.Flush()
 }
 
-func readLine(reader *bufio.Reader) string {
-	str, _, err := reader.ReadLine()
-	if err == io.EOF {
-		return ""
-	}
 
-	return strings.TrimRight(string(str), "\r\n")
-}
-
-func checkError(err error) {
-	if err != nil {
-		panic(err)
-	}
-}
 
 
 
