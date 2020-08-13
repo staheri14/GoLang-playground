@@ -41,11 +41,13 @@ func plusMinus(arr []int32) {
 func main() {
 	reader := bufio.NewReaderSize(os.Stdin, 1024*1024)
 
+	fmt.Println("Enter the size of the array")
 	// read the size of the array
 	nTemp, err := strconv.ParseInt(helper.ReadLine(reader), 10, 64)
 	helper.CheckError(err)
 	n := int32(nTemp)
 
+	fmt.Println("Enter ", nTemp," integers in a space-separated format")
 	//read the array elements
 	arrTemp := strings.Split(helper.ReadLine(reader), " ")
 
