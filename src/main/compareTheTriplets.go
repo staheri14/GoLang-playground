@@ -9,7 +9,27 @@ import (
 	"strings"
 )
 
-// Complete the compareTriplets function below.
+//Alice and Bob each created one problem for HackerRank. A reviewer rates the two challenges, awarding points on a scale from 1 to 100 for three categories: problem clarity, originality, and difficulty.
+//
+//The rating for Alice's challenge is the triplet a = (a[0], a[1], a[2]), and the rating for Bob's challenge is the triplet b = (b[0], b[1], b[2]).
+//
+//The task is to find their comparison points by comparing a[0] with b[0], a[1] with b[1], and a[2] with b[2].
+//
+//If a[i] > b[i], then Alice is awarded 1 point.
+//If a[i] < b[i], then Bob is awarded 1 point.
+//If a[i] = b[i], then neither person receives a point.
+//Comparison points is the total points a person earned.
+//
+//Given a and b, determine their respective comparison points
+// Input Format
+//
+//The first line contains 3 space-separated integers, a[0], a[1], and a[2], the respective values in triplet a.
+//The second line contains 3 space-separated integers, b[0], b[1], and b[2], the respective values in triplet b.
+//
+//Constraints
+//
+//1 ≤ a[i] ≤ 100
+//1 ≤ b[i] ≤ 100
 func compareTriplets(a []int32, b []int32) []int32 {
 
 	scores := []int32{0, 0}
@@ -26,15 +46,18 @@ func compareTriplets(a []int32, b []int32) []int32 {
 }
 
 func main() {
+	//creates a reader with the given buffer size in bytes
 	reader := bufio.NewReaderSize(os.Stdin, 16*1024*1024)
 
-	stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
+	//creates the output file
+	stdout, err := os.Create("compareTheTriplets.txt")
 	checkError(err)
 
 	defer stdout.Close()
 
 	writer := bufio.NewWriterSize(stdout, 16*1024*1024)
 
+	//retrieve the user input
 	aTemp := strings.Split(strings.TrimSpace(readLine(reader)), " ")
 
 	var a []int32
@@ -86,3 +109,6 @@ func checkError(err error) {
 		panic(err)
 	}
 }
+
+
+
