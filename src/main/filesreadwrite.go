@@ -13,4 +13,9 @@ func main(){
 	fmt.Println("The byte representation of the input file is: " ,in)
 	fmt.Println("The string representation of the input file is: " ,string(in))
 
+
+	//
+	out:=[]byte("Bye!")
+	ioutil.WriteFile("bye.txt", out,0777)
+
 }
