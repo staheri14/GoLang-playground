@@ -21,8 +21,9 @@ func main(){
 	fmt.Scan(&address)
 
 	//inserts the address to a map
-	 addressbook:= make(map[string]string,1)
-	 addressbook[name]=address
+	addressbook:= make(map[string]string,1)
+	addressbook[name]=address
+
 
 	 //create the JSON object
 	 jobj,err:=json.Marshal(addressbook)
