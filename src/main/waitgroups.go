@@ -1,5 +1,6 @@
 package main
 
+// this  program uses WaitGroup object to handle dependency between two Go routines i.e., the foo and the main routines
 import (
 	"fmt"
 	"sync"
@@ -16,7 +17,7 @@ func main(){
 
 	var wg sync.WaitGroup
 	wg.Add(1)
-	foo(&wg)
+	go foo(&wg)
 	//waits for foo to finish
 	wg.Wait()
 	fmt.Println("The main routine")
