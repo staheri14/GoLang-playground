@@ -1,4 +1,4 @@
-The current implementation only show cases my skills in development of a production-grade code. However, there are various improvements to be considered. 
+The current implementation only showcases my skills in development of a production-grade code. However, there are various improvements to be considered. 
 The possible improvements include (but not limited to) the followings: 
 - Having a password protected  connection to the database server
 - Storing salted hash of passwords inside the database
