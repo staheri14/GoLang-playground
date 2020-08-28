@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/staheri14/GoLang-playground/webapplication/database"
-	"github.com/staheri14/GoLang-playground/webapplication/server"
+	"github.com/staheri14/go-playground/webapplication/database"
+	"github.com/staheri14/go-playground/webapplication/server"
 	"go.uber.org/zap"
 	"log"
 	"net/http"

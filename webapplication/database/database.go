@@ -1,6 +1,6 @@
 package database
 
-import "github.com/staheri14/GoLang-playground/webapplication/model"
+import "github.com/staheri14/go-playground/webapplication/model"
 
 // DatabaseHandler represents a handler for a database
 type DatabaseHandler interface {

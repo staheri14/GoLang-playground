@@ -1,4 +1,4 @@
-module github.com/staheri14/GoLang-playground/webapplication
+module github.com/staheri14/go-playground/webapplication
 
 go 1.15
 

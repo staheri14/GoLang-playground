@@ -6,7 +6,7 @@ package mock
 
 import (
 	gomock "github.com/golang/mock/gomock"
-	model "github.com/staheri14/GoLang-playground/webapplication/model"
+	model "github.com/staheri14/go-playground/webapplication/model"
 	reflect "reflect"
 )
 

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/go-pg/pg/v10"
 	"github.com/go-pg/pg/v10/orm"
-	"github.com/staheri14/GoLang-playground/webapplication/model"
+	"github.com/staheri14/go-playground/webapplication/model"
 	"strings"
 )
 
