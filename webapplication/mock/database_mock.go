@@ -5,8 +5,8 @@
 package mock
 
 import (
-	model "github.com/axiomzen/cc_BackendAPI_SanazTaheri-Boshrooyeh/model"
 	gomock "github.com/golang/mock/gomock"
+	model "github.com/staheri14/GoLang-playground/webapplication/model"
 	reflect "reflect"
 )
 
