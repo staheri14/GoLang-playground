@@ -45,11 +45,12 @@ func main() {
 	s := server.NewServer(sugar, database, []byte("secret"))
 
 	router := mux.NewRouter().StrictSlash(true)
+	router.HandleFunc("/", s.Home).Methods("GET")
 	router.HandleFunc("/signup", s.SignUp).Methods("POST")
 	router.HandleFunc("/login", s.Login).Methods("POST")
 	router.HandleFunc("/users", s.GetUsers).Methods("GET")
 	router.HandleFunc("/users", s.UpdateUser).Methods("PUT")
 
-	log.Fatal(http.ListenAndServe(":8081", router))
+	log.Fatal(http.ListenAndServe(":8080", router))
 
 }

@@ -26,10 +26,10 @@ func NewDataBase(addr, databaseName string) (*PGDataBase, error) {
 	db := &PGDataBase{PGDB: pgdb}
 
 	// create a users table inside the database
-	err := db.CreateUserTable()
+	/*err := db.CreateUserTable()
 	if err != nil {
 		return db, fmt.Errorf("could not create the users table %w", err)
-	}
+	}*/
 	return db, nil
 }
 

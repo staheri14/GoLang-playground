@@ -328,3 +328,9 @@ func (s *Server) AuthorizeToken(authorizationHeader string) (*jwt.Token, error) 
 
 	return token, nil
 }
+
+
+func (s *Server) Home(w http.ResponseWriter, r *http.Request)  {
+	w.Write([]byte("Hello World!"))
+}
+
