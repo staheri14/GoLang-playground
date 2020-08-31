@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"main/helper"
 )
 
 //Write a program which prompts the user to first enter a name, and then enter an address.
@@ -27,7 +26,9 @@ func main(){
 
 	 //create the JSON object
 	 jobj,err:=json.Marshal(addressbook)
-	 helper.CheckError(err)
+	 if err!=nil{
+	 	return
+	 }
 
 	 fmt.Println("The JSON object is: ",string(jobj))
 
