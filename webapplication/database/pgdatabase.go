@@ -16,20 +16,21 @@ type PGDataBase struct {
 
 // NewDataBase takes the address of a postgreSQL server, its database name, and user and password for an authorized user (with access to the database)
 // initializes a connection, embeds it inside a PGDataBase struct and returns a pointer to that struct
-func NewDataBase(addr, databaseName string) (*PGDataBase, error) {
+func NewDataBase(addr, databaseName, password string) (*PGDataBase, error) {
 	// connect to the postgres database with the given information
 	pgdb := pg.Connect(&pg.Options{
 		Addr:     addr,
 		Database: databaseName,
+		Password: password,
 	})
 
 	db := &PGDataBase{PGDB: pgdb}
 
 	// create a users table inside the database
-	/*err := db.CreateUserTable()
+	err := db.CreateUserTable()
 	if err != nil {
 		return db, fmt.Errorf("could not create the users table %w", err)
-	}*/
+	}
 	return db, nil
 }
 

@@ -3,7 +3,7 @@ package model
 var Email = "email"
 var FistName = "firstname"
 var LastName = "lastname"
-var AuthenticationHeader="x-authentication-token"
+var AuthenticationHeader="authorization"
 
 type User struct {
 	tableName struct{} `pg:",discard_unknown_columns"`

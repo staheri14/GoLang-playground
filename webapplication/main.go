@@ -27,11 +27,13 @@ func main() {
 	}()
 	sugar := logger.Sugar()
 
+	// TODO must be read from a file
 	// Initialize a database
-	database, err := database.NewDataBase("localhost:5432", "postgres")
+	database, err := database.NewDataBase("db:5432", "postgres", "123")
 	if err != nil {
 		panic(err)
 	}
+	sugar.Info("the database is connected successfully.")
 
 	defer func() {
 		database.PGDB.Close()
