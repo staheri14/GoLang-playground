@@ -1,5 +1,6 @@
 # Instructions
 - Run `docker-compose`, it will run containers for the PostgreSQL server and the http server.
+    - Type the following command in your terminal (on Mac) `docker-compose up --build`
 - The `docker-compose` builds up two containers, `db` and `http-server`, where `db` is the PostgreSQL, and 
   is accessible to `http-server` on `db:5432`.
 - The http server is accessible via `localhost:8080` 
