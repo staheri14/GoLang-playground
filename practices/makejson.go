@@ -21,7 +21,8 @@ func main(){
 
 	//inserts the address to a map
 	addressbook:= make(map[string]string,1)
-	addressbook[name]=address
+	addressbook["name"]=name
+	addressbook["address"]=address
 
 
 	 //create the JSON object
@@ -33,9 +34,9 @@ func main(){
 	 fmt.Println("The JSON object is: ",string(jobj))
 
 	 //check the unmarshalled version
-	 add:=make(map[string]string)
+	 /*add:=make(map[string]string)
 	 json.Unmarshal(jobj,&add)
-	 fmt.Println("After unmarshalling: the address of", name, " is ", add[name])
+	 fmt.Println("After unmarshalling: the address of", name, " is ", add[name])*/
 }
 
 
