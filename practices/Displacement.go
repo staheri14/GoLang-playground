@@ -21,7 +21,7 @@ func main() {
 	fmt.Scan(&acceleration)
 	fmt.Println("Enter Velocity: ")
 	fmt.Scan(&velocity)
-	fmt.Println("Enter Displacement: ")
+	fmt.Println("Enter Initial Displacement: ")
 	fmt.Scan(&displacement)
 	f := GenDisplaceFn(acceleration, velocity, displacement)
 
