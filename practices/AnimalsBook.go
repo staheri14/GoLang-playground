@@ -1,4 +1,5 @@
 package main
+
 //which allows the user to get information about a predefined set of animals. Three animals are predefined, cow, bird, and snake.
 //Each animal can eat, move, and speak. The user can issue a request to find out one of three things about an animal:
 //1) the food that it eats, 2) its method of locomotion, and 3) the sound it makes when it speaks.
@@ -57,13 +58,15 @@ func main() {
 		name := strings.ToLower(parts[0])
 		request := strings.ToLower(parts[1])
 
-
 		//check the type of animal
 		var animal Animal
 		switch name {
-		case "cow" : animal=cow
-		case "bird" : animal=bird
-		case "snake" : animal=snake
+		case "cow":
+			animal = cow
+		case "bird":
+			animal = bird
+		case "snake":
+			animal = snake
 		default:
 			fmt.Println("Wrong name! try again")
 			continue
@@ -72,9 +75,12 @@ func main() {
 
 		//resolve the request
 		switch request {
-		case "eat": animal.Eat()
-		case "move": animal.Move()
-		case "speak": animal.Speak()
+		case "eat":
+			animal.Eat()
+		case "move":
+			animal.Move()
+		case "speak":
+			animal.Speak()
 		default:
 			fmt.Println("Wrong request! try again")
 			continue
@@ -85,4 +91,3 @@ func main() {
 	}
 
 }
-
