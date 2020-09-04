@@ -47,7 +47,7 @@ func main() {
 	helper.CheckError(err)
 	n := int32(nTemp)
 
-	fmt.Println("Enter ", nTemp," integers in a space-separated format")
+	fmt.Println("Enter ", nTemp, " integers in a space-separated format")
 	//read the array elements
 	arrTemp := strings.Split(helper.ReadLine(reader), " ")
 
