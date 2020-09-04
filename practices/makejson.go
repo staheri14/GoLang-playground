@@ -11,8 +11,7 @@ import (
 //Your program should use Marshal() to create a JSON object from the map,
 //and then your program should print the JSON object
 
-
-func main(){
+func main() {
 	var name, address string
 	fmt.Println("Enter a name: ")
 	fmt.Scan(&name)
@@ -20,23 +19,20 @@ func main(){
 	fmt.Scan(&address)
 
 	//inserts the address to a map
-	addressbook:= make(map[string]string,1)
-	addressbook["name"]=name
-	addressbook["address"]=address
+	addressbook := make(map[string]string, 1)
+	addressbook["name"] = name
+	addressbook["address"] = address
 
+	//create the JSON object
+	jobj, err := json.Marshal(addressbook)
+	if err != nil {
+		return
+	}
 
-	 //create the JSON object
-	 jobj,err:=json.Marshal(addressbook)
-	 if err!=nil{
-	 	return
-	 }
+	fmt.Println("The JSON object is: ", string(jobj))
 
-	 fmt.Println("The JSON object is: ",string(jobj))
-
-	 //check the unmarshalled version
-	 /*add:=make(map[string]string)
-	 json.Unmarshal(jobj,&add)
-	 fmt.Println("After unmarshalling: the address of", name, " is ", add[name])*/
+	//check the unmarshalled version
+	/*add:=make(map[string]string)
+	json.Unmarshal(jobj,&add)
+	fmt.Println("After unmarshalling: the address of", name, " is ", add[name])*/
 }
-
-

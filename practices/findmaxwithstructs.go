@@ -6,6 +6,7 @@ type P struct {
 	x string
 	y int
 }
+
 func main() {
 	b := P{"x", -1}
 	a := [...]P{P{"a", 10},
