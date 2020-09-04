@@ -6,14 +6,13 @@ import (
 	"sync"
 )
 
-
-func foo(wg *sync.WaitGroup){
+func foo(wg *sync.WaitGroup) {
 	//acknowledge the execution at the end
 	defer wg.Done()
 
 	fmt.Println("foo routine")
 }
-func main(){
+func main() {
 
 	var wg sync.WaitGroup
 	wg.Add(1)
