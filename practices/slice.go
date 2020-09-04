@@ -14,23 +14,21 @@ import (
 //The slice must grow in size to accommodate any number of integers which the user decides to enter.
 //The program should only quit (exiting the loop) when the user enters the character ‘X’ instead of an integer.
 
-
-
 func main() {
 
 	var input int
 	var err error
 	var inputstring string
-	intarr :=make([]int,0,3)
+	intarr := make([]int, 0, 3)
 	for {
 		fmt.Println("Enter an integer (or x to exit): ")
 		fmt.Scan(&inputstring)
-		if strings.Compare(strings.ToLower(inputstring),"x" ) ==0 {
+		if strings.Compare(strings.ToLower(inputstring), "x") == 0 {
 			return
 		}
 
 		//convert the input to integer
-		if input, err= strconv.Atoi(inputstring); err!=nil{
+		if input, err = strconv.Atoi(inputstring); err != nil {
 			fmt.Println("Enter a valid input")
 			continue
 		}
@@ -41,13 +39,12 @@ func main() {
 		fmt.Println(intarr)
 
 		// if the max capacity is hit
-		if len(intarr)==cap(intarr) {
+		if len(intarr) == cap(intarr) {
 			// double the capacity of the slice
-			newintarr:=make([]int,cap(intarr),(cap(intarr)+1)*2)
-			copy(newintarr,intarr)
-			intarr=newintarr
+			newintarr := make([]int, cap(intarr), (cap(intarr)+1)*2)
+			copy(newintarr, intarr)
+			intarr = newintarr
 		}
 	}
 
 }
-
