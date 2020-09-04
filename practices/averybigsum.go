@@ -65,4 +65,3 @@ func main() {
 	// writes the output
 	writer.Flush()
 }
-

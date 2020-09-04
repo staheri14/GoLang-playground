@@ -102,8 +102,3 @@ func main() {
 
 	writer.Flush()
 }
-
-
-
-
-
