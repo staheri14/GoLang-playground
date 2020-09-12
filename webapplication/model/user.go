@@ -40,3 +40,4 @@ type TokenCredentials struct {
 type Claims struct {
 	Email string `json:"email"`
 }
+

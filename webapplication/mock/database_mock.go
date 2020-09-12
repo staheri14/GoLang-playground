@@ -90,17 +90,17 @@ func (mr *MockDatabaseHandlerMockRecorder) GetUsers() *gomock.Call {
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetUsers", reflect.TypeOf((*MockDatabaseHandler)(nil).GetUsers))
 }
 
-// AuthenticateUser mocks base method
-func (m *MockDatabaseHandler) AuthenticateUser(arg0 model.LoginCredentials) (bool, error) {
+// GetOneUser mocks base method
+func (m *MockDatabaseHandler) GetOneUser(arg0 string) (model.LoginCredentials, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "AuthenticateUser", arg0)
-	ret0, _ := ret[0].(bool)
+	ret := m.ctrl.Call(m, "GetOneUser", arg0)
+	ret0, _ := ret[0].(model.LoginCredentials)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
-// AuthenticateUser indicates an expected call of AuthenticateUser
-func (mr *MockDatabaseHandlerMockRecorder) AuthenticateUser(arg0 interface{}) *gomock.Call {
+// GetOneUser indicates an expected call of GetOneUser
+func (mr *MockDatabaseHandlerMockRecorder) GetOneUser(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AuthenticateUser", reflect.TypeOf((*MockDatabaseHandler)(nil).AuthenticateUser), arg0)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetOneUser", reflect.TypeOf((*MockDatabaseHandler)(nil).GetOneUser), arg0)
 }

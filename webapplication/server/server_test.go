@@ -109,7 +109,7 @@ func TestServer_Login(t *testing.T) {
 	// create valid LoginCredentials
 	userCred := model.LoginCredentials{Email: "user1@email.com", Password: "123"}
 	// database shall return true when its AuthenticateUser gets called on userCred indicating a successful login
-	db.EXPECT().AuthenticateUser(userCred).Return(true, nil)
+	db.EXPECT().GetOneUser("user1@email.com").Return(model.LoginCredentials{Email: "user1@email.com", Password: "123"}, nil)
 
 	// init the server
 	s := NewServer(sugar, db, []byte{})

@@ -21,7 +21,7 @@ type DatabaseHandler interface {
 	// for all the records of the database
 	GetUsers() (model.UserPublicList, error)
 
-	// GetOneUser returns true if the passed credentials model.LoginCredentials is valid (exists in the database),
-	// otherwise, false
-	AuthenticateUser(model.LoginCredentials) (bool, error)
+	// GetOneUser returns the  LoginCredentials of a user with the given email address, if exists
+	// otherwise  returns error
+	GetOneUser(string) (model.LoginCredentials, error)
 }

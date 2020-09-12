@@ -177,14 +177,17 @@ func (s *Server) login(w http.ResponseWriter, r *http.Request) error {
 		return fmt.Errorf("could not decode the body of the request: %w", err)
 	}
 
-	// Authenticate the user's email and password (embedded inside the creds)
-	ok, err := s.database.AuthenticateUser(creds)
+	// Retrieves the user's email and password from the database
+	dbcreds, err := s.database.GetOneUser(creds.Email)
 	if err != nil {
 		// If an error happens, set an HTTP status code inside w
-		w.WriteHeader(http.StatusInternalServerError)
+		w.WriteHeader(http.StatusBadRequest)
 		// return an error
 		return fmt.Errorf("could not retrieve the user's record from the database: %w", err)
 	}
+
+	// Authenticate the user
+	ok:=strings.EqualFold(dbcreds.Password,creds.Password)
 	if !ok {
 		// if the authentication of user's email and password  failed, set an HTTP status code inside w
 		w.WriteHeader(http.StatusUnauthorized)

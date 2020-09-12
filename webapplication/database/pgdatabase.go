@@ -5,7 +5,6 @@ import (
 	"github.com/go-pg/pg/v10"
 	"github.com/go-pg/pg/v10/orm"
 	"github.com/staheri14/go-playground/webapplication/model"
-	"strings"
 )
 
 // PGDataBase implements DatabaseHandler interface for PostgreSQL database
@@ -113,24 +112,28 @@ func (p *PGDataBase) GetUsers() (model.UserPublicList, error) {
 
 }
 
-// GetOneUser returns true if the email inside cred exists in the database otherwise false
-func (p *PGDataBase) AuthenticateUser(providedCred model.LoginCredentials) (bool, error) {
+// GetOneUser returns the  LoginCredentials of a user with the given email address, if exists
+// otherwise  returns error
+func (p *PGDataBase) GetOneUser(email string) (model.LoginCredentials, error) {
 
-	var user model.User
-	user.Email = providedCred.Email
 	var userCred model.LoginCredentials
 
-	// retrieve users information based on the primary key and write into userCred
+	var user model.User
+	user.Email = email
+
+
+	// retrieve user information based on the primary key email and write into userCred
 	err := p.PGDB.Model(&user).WherePK().Select(&userCred)
+
 	if err != nil {
-		return false, fmt.Errorf("could not get users infromation from the database %w", err)
+		return model.LoginCredentials{}, fmt.Errorf("could not get users infromation from the database %w", err)
 	}
 
 	//check the password
-	if strings.Compare(userCred.Password, providedCred.Password) != 0 {
-		return false, nil
-	}
+	//if strings.Compare(userCred.Password, providedCred.Password) != 0 {
+		//return userCred, nil
+	//}
 
 	// the user's credential is successfully verified
-	return true, nil
+	return userCred, nil
 }
