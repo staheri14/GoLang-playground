@@ -129,11 +129,6 @@ func (p *PGDataBase) GetOneUser(email string) (model.LoginCredentials, error) {
 		return model.LoginCredentials{}, fmt.Errorf("could not get users infromation from the database %w", err)
 	}
 
-	//check the password
-	//if strings.Compare(userCred.Password, providedCred.Password) != 0 {
-		//return userCred, nil
-	//}
-
-	// the user's credential is successfully verified
+	// the user's credential is successfully extracted
 	return userCred, nil
 }
