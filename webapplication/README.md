@@ -8,7 +8,7 @@ To determine whether a request is from a logged in user or not, Json Web Tokens 
 PostgreSQL is used for the database with the following Golang wrapper https://github.com/go-pg/pg.
 
 An overview of the application is shown in the following figure.
-![Image of Yaktocat](https://github.com/staheri14/go-playground/blob/master/webapplication/Photos/overview.png)
+![Image of Yaktocat](https://github.com/staheri14/go-playground/blob/master/webapplication/photos/overview.png)
 
 
 ## API Specs
