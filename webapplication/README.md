@@ -10,5 +10,6 @@ The possible improvements include (but not limited to) the followings:
 
 
 
+![Image of Yaktocat](https://github.com/staheri14/go-playground/blob/master/webapplication/Photos/overview.png)
 
 
