@@ -3,7 +3,7 @@ services:
   db:
     image: postgres
     ports:
-      - "5432:5432"
+      - "5432:5432" #<host_port>:<container_port>
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123
