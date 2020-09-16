@@ -46,7 +46,7 @@ func (p *PGDataBase) CreateUserTable() error {
 
 	// drop the table if exists but is empty
 	p.PGDB.Model(&m).DropTable(&orm.DropTableOptions{IfExists:true})
-	
+
 	// if does not exist, create a non-temporary table
 	err := p.PGDB.Model(&m).CreateTable(&orm.CreateTableOptions{
 		Temp: false,
