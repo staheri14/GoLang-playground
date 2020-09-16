@@ -29,7 +29,7 @@ func main() {
 
 	// TODO must be read from a file
 	// Initialize a database
-	database, err := database.NewDataBase("db:5432", "postgres", "123")
+	database, err := database.NewDataBase("localhost:5432", "postgres", "123")
 	if err != nil {
 		panic(err)
 	}

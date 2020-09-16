@@ -37,13 +37,16 @@ func NewDataBase(addr, databaseName, password string) (*PGDataBase, error) {
 func (p *PGDataBase) CreateUserTable() error {
 	m := model.User{}
 
-	// check whether the table already exists
+	// check whether the table already exists with at least one record
 	ok, _ := p.PGDB.Model(&m).Exists()
 	if ok {
 		//return nil indicating the table exists
 		return nil
 	}
 
+	// drop the table if exists but is empty
+	p.PGDB.Model(&m).DropTable(&orm.DropTableOptions{IfExists:true})
+	
 	// if does not exist, create a non-temporary table
 	err := p.PGDB.Model(&m).CreateTable(&orm.CreateTableOptions{
 		Temp: false,
