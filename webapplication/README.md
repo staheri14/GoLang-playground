@@ -5,7 +5,7 @@ The application has the signup, login endpoints as well as an additional resourc
 
 To determine whether a request is from a logged in user or not, Json Web Tokens (https://jwt.io/) are utilized. The frontend will be sending requests with the JWT in the `x-authentication-token` header.
 
-PostgreSQL is used for the database with the following Golang wrapper https://github.com/go-pg/pg.
+PostgreSQL is used for the database with the following PostgreSQL client and ORM for Go https://github.com/go-pg/pg.
 
 An overview of the application is shown in the following figure.
 ![system overview](https://github.com/staheri14/go-playground/blob/master/webapplication/photos/overview.png)
