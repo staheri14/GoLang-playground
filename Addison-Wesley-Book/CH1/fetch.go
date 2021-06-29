@@ -21,7 +21,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "error occured in http get %s", err.Error())
 		os.Exit(1)
 	}
-	// The Body is of type io.ReadCloser snd can be read by  ioutil.ReadAll
+	// The Body is of type io.ReadCloser and can be read by  ioutil.ReadAll
 	b, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "err occured while reading the response body %s", err.Error())
